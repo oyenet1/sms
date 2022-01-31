@@ -65,7 +65,7 @@ class Student extends Component
                 'icon' => 'success',
                 'text' => 'Student Added Successfully',
                 'title' => 'Created',
-                'timer' => 3000,
+                'timer' => 4000,
             ]);
         }
 
@@ -115,7 +115,7 @@ class Student extends Component
                 'icon' => 'success',
                 'text' => 'Student Updated Successfully',
                 'title' => 'Updated',
-                'timer' => 2000,
+                'timer' => 4000,
             ]);
         }
     }
@@ -139,7 +139,7 @@ class Student extends Component
                 'icon' => 'success',
                 'text' => 'Student deleted Successfully',
                 'title' => 'Deleted',
-                'timer' => 2000,
+                'timer' => 4000,
             ]);
         }
     }
