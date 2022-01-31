@@ -1,0 +1,68 @@
+models:
+    Payment:
+        id: bigIncrements
+        user_id: integer index
+        purpose: string
+        reference: string
+        date_payed: dateTime
+        amount: bigInteger
+        created_at: timestamp nullable
+        updated_at: timestamp nullable
+    PasswordReset:
+        id: false
+        email: string index
+        token: string
+        created_at: timestamp nullable
+    Permission:
+        id: bigIncrements
+        name: string unique
+        display_name: string nullable
+        description: string nullable
+        created_at: timestamp nullable
+        updated_at: timestamp nullable
+    PermissionRole:
+        id: false
+        permission_id: bigInteger unsigned
+        role_id: bigInteger index unsigned
+        indexes:
+            - primary: permission_id, role_id
+    PermissionUser:
+        id: false
+        permission_id: bigInteger index unsigned
+        user_id: bigInteger unsigned
+        user_type: string
+        indexes:
+            - primary: permission_id, user_id, user_type
+    Role:
+        id: bigIncrements
+        name: string unique
+        display_name: string nullable
+        description: string nullable
+        created_at: timestamp nullable
+        updated_at: timestamp nullable
+    RoleUser:
+        id: false
+        role_id: bigInteger index unsigned
+        user_id: bigInteger unsigned
+        user_type: string
+        indexes:
+            - primary: role_id, user_id, user_type
+    User:
+        id: bigIncrements
+        reg_no: tinyInteger unique
+        name: string
+        email: string unique
+        phone: bigInteger
+        level: integer nullable
+        department: string
+        email_verified_at: timestamp nullable
+        password: string
+        remember_token: string nullable
+        created_at: timestamp nullable
+        updated_at: timestamp nullable
+    Reversal:
+        id: increments
+        payment_id: bigInteger
+        status: enum
+        created_at: timestamp
+        updated_at: timestamp
